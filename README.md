@@ -9,6 +9,9 @@ Para ejecutar un contenedor:
 
 	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY electron
 
+Si se quiere enganchar con el volumen del host para que se actualice el código:
+	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY  --mount type=bind,source="$(pwd)",target=/app  electron
+
 
 
 **Clone and run for a quick way to see Electron in action.**
