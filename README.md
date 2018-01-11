@@ -1,5 +1,16 @@
 # electron-quick-start
 
+
+para construir la imagen docker:
+
+	docker build -t electron .
+
+Para ejecutar un contenedor:
+
+	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY electron
+
+
+
 **Clone and run for a quick way to see Electron in action.**
 
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
