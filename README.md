@@ -13,6 +13,16 @@ Para ejecutar un contenedor:
 Si se quiere enganchar con el volumen del host para que se actualice el código:
 	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY  --mount type=bind,source="$(pwd)",target=/app  electron
 
+Para ejecutar en MacOSX:
+	socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+	docker run -e DISPLAY=172.16.100.103:0 qrdesktop
+	
+poniendo la IP que corresponda. Es necesario tener instalado xquartz y socat_:
+
+	brew install socat
+	brew cask install xquartz
+	open -a XQuartz
+
 
 
 **Clone and run for a quick way to see Electron in action.**
