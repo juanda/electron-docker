@@ -6,14 +6,17 @@ para construir la imagen docker:
 	docker build -t electron .
 
 Para ejecutar un contenedor:
+
 	xhost + local:docker
 
 	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY electron
 
 Si se quiere enganchar con el volumen del host para que se actualice el código:
+
 	docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY  --mount type=bind,source="$(pwd)",target=/app  electron
 
 Para ejecutar en MacOSX:
+
 	socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 	docker run -e DISPLAY=172.16.100.103:0 qrdesktop
 	
